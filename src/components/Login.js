@@ -4,11 +4,6 @@ import { Redirect } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import { isLoggedIn } from '../redux/actions';
 
-
-
-
-
-
 function Login() {
 
     const dispatch = useDispatch();
@@ -19,7 +14,7 @@ function Login() {
 
     function onSubmitHandler(e) {
         e.preventDefault();
-        if (userName === 'admin' && password === 'admin') {
+        if (userName === 'akki' && password === 'akki') {
             dispatch(isLoggedIn())
 
         }

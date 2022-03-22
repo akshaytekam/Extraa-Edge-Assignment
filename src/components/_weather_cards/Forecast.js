@@ -3,12 +3,6 @@ import 'dotenv/config';
 import './Forecast.css'
 import Helper from './_forecast_helper';
 
-
-
-
-
-
-
 function Forecast({ city }) {
 
     const [forecastData, setForecastData] = useState(null);
@@ -18,20 +12,11 @@ function Forecast({ city }) {
             const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${process.env.REACT_APP_API_KEY}&units=metric`);
             const jsonData = await response.json();
             const fiveDay = jsonData.list;
-            //console.log(jsonData);
-            console.log(fiveDay);
             setForecastData(fiveDay);
         }
 
         fetchData();
     }, [city])
-
-    /*function skyImage(sky) {
-        if (sky === 'Haze') return { backgroundImage: `url("https://c.tenor.com/__gznbyGLKYAAAAC/travel-rain.gif")` }
-
-    }
-
-    console.log(skyImage('Haze'))*/
 
     return (
         <>
@@ -40,7 +25,7 @@ function Forecast({ city }) {
                     <>
                         {forecastData.map((item, key) => {
                             return (
-                                <div className="forecastDays" /*style={skyImage(item.weather[0].main)}*/ key={key}>
+                                <div className="forecastDays" key={key}>
                                     <Helper temp={item.main.temp} date={item.dt_txt} sky={item.weather[0].description} skyIcon={item.weather[0].icon}/>
                                 </div>
                             )

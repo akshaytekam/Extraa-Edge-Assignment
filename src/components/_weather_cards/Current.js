@@ -3,8 +3,6 @@ import 'dotenv/config';
 import './Current.css';
 
 
-
-
 function Current({ city }) {
 
     const [weatherData, setWeatherData] = useState(null);
@@ -13,7 +11,6 @@ function Current({ city }) {
         async function fetchData() {
             const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.REACT_APP_API_KEY}&units=metric`);
             const jsonData = await response.json();
-            //console.log(jsonData)
             setWeatherData(jsonData);
         }
 
@@ -23,8 +20,8 @@ function Current({ city }) {
 
     return (
         <div className="currentWeatherCard">
-            <h3>Current Weather</h3>
-            <div className="sky">
+            <h3>Weather In Celcius</h3>
+            <div>
                 {weatherData != null ? weatherData.weather[0].main : "SKY"}
             </div>
             <div className="temp">{weatherData != null ? weatherData.main.temp : "--.--"}°C </div><br />

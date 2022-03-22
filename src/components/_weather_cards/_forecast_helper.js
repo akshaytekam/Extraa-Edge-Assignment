@@ -2,11 +2,6 @@ import React from 'react';
 import './_forecast_helper.css';
 
 
-
-
-
-
-
 function _forecast_helper({ date, temp, sky, skyIcon }) {
 
     const _date = new Date(date).toLocaleString('en-IN', { weekday: 'short', hour: 'numeric', hour12: true }).toUpperCase();
